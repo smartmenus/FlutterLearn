@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/flowlist_screen.dart';
+import 'package:flutter_app_test/pages/flowlist_screen.dart';
 
 class MessageScreen extends StatelessWidget {
   final  double _titleFontSize = 18.0;
@@ -14,7 +14,7 @@ class MessageScreen extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: Icon(Icons.email),
-              title: Text('邮件小助手', style: TextStyle(fontSize: _titleFontSize),),
+              title: Text('邮件小助手sfdr', style: TextStyle(fontSize: _titleFontSize),),
             ),
             ListTile(
               leading: Icon(Icons.filter_list),
