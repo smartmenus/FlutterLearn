@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'pages/address_screen.dart';
 import 'pages/message_screen.dart';
@@ -15,6 +16,24 @@ class _BottomNavgationWidgetState extends State<BottomNavgationWidget> {
   final _BottomNavigationColor = Colors.blue;
   int _currentIndex = 0;
   List<Widget> screensList = List();
+  final List<BottomNavigationBarItem> bottomList = [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.message),
+      title: Text('消息'),
+    ),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.apps),
+        title: Text('工作')
+    ),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.contacts),
+        title: Text('通讯录')
+    ),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.portrait),
+        title: Text('我')
+    )
+  ];
 
   @override
   void initState() {
@@ -34,48 +53,8 @@ class _BottomNavgationWidgetState extends State<BottomNavgationWidget> {
     return Scaffold(
       body: screensList[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.message,
-              color: _BottomNavigationColor,
-            ),
-            title: Text(
-              '消息',
-              style: TextStyle(color: _BottomNavigationColor),
-            )
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.work,
-                color: _BottomNavigationColor,
-              ),
-              title: Text(
-                '工作',
-                style: TextStyle(color: _BottomNavigationColor),
-              )
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.dashboard,
-                color: _BottomNavigationColor,
-              ),
-              title: Text(
-                '通讯录',
-                style: TextStyle(color: _BottomNavigationColor),
-              )
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.near_me,
-                color: _BottomNavigationColor,
-              ),
-              title: Text(
-                '我',
-                style: TextStyle(color: _BottomNavigationColor),
-              )
-          ),
-        ],
+        items:bottomList,
+        type: BottomNavigationBarType.fixed,
         //哪个被选中了
         currentIndex: _currentIndex,
         onTap: (int index){
