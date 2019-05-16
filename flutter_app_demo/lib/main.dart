@@ -12,6 +12,7 @@ class Myapp extends StatelessWidget{
       title: '首页导航',
       theme: ThemeData.light(),
       home: BottomNavgationWidget(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

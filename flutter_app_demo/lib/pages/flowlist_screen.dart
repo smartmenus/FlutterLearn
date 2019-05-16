@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_app_demo/models/flow.dart';
 import 'dart:io';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:flutter_app_demo/tools/netutil.dart';
 
@@ -26,6 +27,7 @@ class _FlowListPageState extends State<FlowListPage> {
     return Scaffold(
       appBar: AppBar(
         title:Text('流程') ,
+        elevation: 1,
       ),
       body:ListView(
         children: flowListCells,
@@ -92,15 +94,15 @@ class FlowListCell extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: const EdgeInsets.only(left: 5.0),
-                  width:  300.0,
-                  height: 20.0,
+                  width:  ScreenUtil.getInstance().setWidth(500),
+                  height: ScreenUtil.getInstance().setHeight(40),
                   child:  Text(flowListInfo.msgTitleShort,style: TextStyle(fontSize: 18),),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(left: 5.0, top: 5.0),
+                  margin: const EdgeInsets.only(left: 5.0, top: 2.0),
                   alignment: AlignmentDirectional.centerStart,
-                  width:  300.0,
-                  height: 20.0,
+                  width:  ScreenUtil.getInstance().setWidth(500),
+                  height: ScreenUtil.getInstance().setHeight(40),
                   child:  Text(flowListInfo.flowName,style: TextStyle(fontSize: 13),),
                 ),
               ],
@@ -108,10 +110,10 @@ class FlowListCell extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.only(right: 8.0, top: 8),
+            padding: const EdgeInsets.only(right: 8.0, top: 18),
             child: Container(
-              height: 30,
-              width: 50,
+              height: ScreenUtil.getInstance().setHeight(30),
+              width: ScreenUtil.getInstance().setWidth(120),
               alignment: AlignmentDirectional.topStart,
               child: Text(flowListInfo.msgTime.substring(10, 19), style: TextStyle(fontSize: 12, color: Colors.grey),),
             ),

@@ -5,6 +5,7 @@ import 'pages/address_screen.dart';
 import 'pages/message_screen.dart';
 import 'pages/person_screen.dart';
 import 'pages/work_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomNavgationWidget extends StatefulWidget {
   @override
@@ -50,6 +51,7 @@ class _BottomNavgationWidgetState extends State<BottomNavgationWidget> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334, allowFontScaling: true)..init(context);
     return Scaffold(
       body: screensList[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
