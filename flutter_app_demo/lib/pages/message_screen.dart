@@ -12,14 +12,15 @@ class MessageScreen extends StatelessWidget {
     loginserver('pp', 'PPaZJ992560');
     return Scaffold(
       appBar: AppBar(
-        title: Text('message'),
+        title: Text('消息'),
+        elevation: 1,
       ),
       body: Center(
         child: ListView(
           children: <Widget>[
             ListTile(
               leading: Icon(Icons.email),
-              title: Text('邮件小助手sfdr', style: TextStyle(fontSize: _titleFontSize),),
+              title: Text('邮件小助手', style: TextStyle(fontSize: _titleFontSize),),
             ),
             ListTile(
               leading: Icon(Icons.filter_list),
