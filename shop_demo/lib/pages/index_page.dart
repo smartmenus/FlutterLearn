@@ -11,12 +11,15 @@ import 'cart_page.dart';
 import 'cart_page.dart';
 import 'member_page.dart';
 
+
 class IndexPage extends StatefulWidget {
   @override
   _IndexPageState createState() => _IndexPageState();
 }
 
 class _IndexPageState extends State<IndexPage> {
+
+  PageController _pageController;
 
   final List<BottomNavigationBarItem> bottomTabs = [
     BottomNavigationBarItem(
@@ -37,7 +40,7 @@ class _IndexPageState extends State<IndexPage> {
     ),
   ];
 
-  final List tabBodys = [
+  final List<Widget> tabBodys = [
     prefix0.HomePage(),
     CategrayPage(),
     CartPage(),
@@ -52,6 +55,13 @@ class _IndexPageState extends State<IndexPage> {
     // TODO: implement initState
     super.initState();
     currentPage = tabBodys[currentIndex];
+    _pageController = new PageController()..addListener((){
+      if(currentPage != _pageController.page.round()){
+        setState(() {
+          currentPage = _pageController.page.round();
+        });
+      }
+    });
   }
 
   @override
@@ -72,7 +82,10 @@ class _IndexPageState extends State<IndexPage> {
           });
         },
       ),
-      body: tabBodys[currentIndex],
+      body: IndexedStack(
+        index: currentIndex,
+        children: tabBodys,
+      ),
     );
   }
 }
