@@ -3,7 +3,8 @@ import 'dart:async';
 import 'dart:io';
 import 'package:shop_demo/config/servcie_url.dart';
 
-Future request(url, formData) async{
+//可选参数
+Future request(url, {formData}) async{
 
   try{
     print('开始获取数据。。。。。。');
