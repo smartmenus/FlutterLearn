@@ -57,6 +57,7 @@ var FlowList = React.createClass({
         this.loginServer();
     },
     async loginServer(){
+        console.log("++++++++++++++++")
         console.log('获取数据')
          fetch(BASE_URL, {
             method: 'POST',
@@ -71,7 +72,9 @@ var FlowList = React.createClass({
            })
         }).then((response) => response.json()).then((resonponseJson) => resonponseJson.json).then((responseData) =>{
             console.log(responseData)
-        })  
+        }).catch((error) => {
+            console.log(error)
+        }) 
      },
      getTimeStamp(){
         const date = new Date();

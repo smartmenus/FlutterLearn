@@ -10,7 +10,7 @@ var Mine = React.createClass({
     render(){
        return(
         <View style ={styles.container}>
-            <Text style={styles.text}>消息</Text>
+            <Text style={styles.text}>我的</Text>
         </View>
        );
     }
