@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../model/category_good.dart';
 import '../provide/categroy_goods_list.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class CategrayPage extends StatefulWidget {
   @override
@@ -245,6 +246,7 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
                   ),
                     loadMore: () async{
                       print('上拉加载更多');
+                      _getMoreList();
                     },
                    
               ),
@@ -252,7 +254,6 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
           );
         }else{
           return Text('暂时没有数据');
-          _getMoreList();
         } 
       },
     );
@@ -267,8 +268,17 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
     };
     request('getMallGoods', formData: data).then((val){
       var data = json.decode((val.toString()));
+      print('<<<<<<<<<<<<${data}');
       CategoryGoodsListModel goodsList = CategoryGoodsListModel.fromJson(data);
       if(goodsList.data == null){
+        Fluttertoast.showToast(
+          msg: '已经到底',
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          backgroundColor: Colors.pink,
+          textColor: Colors.white,
+          fontSize: 16.0
+        );
         Provide.value<ChildCategory>(context).chageNomoreText('没有更多数据了'); 
       }else
         Provide.value<CategoryGoodsListProvide>(context).getMoreList(goodsList.data);
