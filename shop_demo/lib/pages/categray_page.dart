@@ -302,11 +302,11 @@ class _CategoryGoodsListState extends State<CategoryGoodsList> {
       child: Row(
         children: <Widget>[
           Text(
-            '价格：￥${newList[index].presentPrice}',
+            '价格:￥${newList[index].presentPrice}',
             style: TextStyle(color: Colors.pink, fontSize: ScreenUtil().setSp(30)),
           ),
           Text(
-            '价格：￥${newList[index].oriPrice}',
+            '价格:￥${newList[index].oriPrice}',
              style: TextStyle(color: Colors.black26, decoration: TextDecoration.lineThrough),
           ),
         ],
