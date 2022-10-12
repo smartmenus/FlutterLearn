@@ -9,7 +9,7 @@
 	"dependencies": {
 		"buffer": "^5.2.1",
 		"react": "16.0.0-alpha.6",
-		"react-native": "0.44.3",
+		"react-native": "0.70.2",
 		"react-navigation": "^3.11.0"
 	},
 	"devDependencies": {
